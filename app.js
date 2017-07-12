@@ -1,7 +1,9 @@
 const PORT = 8000;
 
 // REQUIRES
+require('dotenv').config();
 const express = require('express');
+const router = express.Router();
 const path = require('path');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
@@ -30,6 +32,7 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler));
 
 // ROUTES
+app.use('/api', require('./routes/api'));
 app.get('/', (req, res) => {
   res.sendFile(path.resolve('index.html'));
 });
