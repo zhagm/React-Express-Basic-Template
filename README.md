@@ -1,5 +1,7 @@
 ## React Express Fullstack Template
 
+Click [here](https://react-express-basic.herokuapp.com/) for a live demo.
+
 Created using React.js, Node.js, Express, and Webpack.
 
 A very basic ERN (Express, React, Node) template using Webpack (3.0.0), Node.js (8.0.0), Express, and React.js. It also has Hot Module Reloading enabled.
