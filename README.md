@@ -12,4 +12,5 @@ A very basic ERN (Express, React, Node) template using Webpack (3.0.0), Node.js 
 ```
 .gitignore
 node_modules/
+bundle.js
 ```
