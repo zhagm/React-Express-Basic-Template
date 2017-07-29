@@ -1,7 +1,8 @@
 const PORT = process.env.PORT || 8000;
+const MONGO_URI = 'mongodb://localhost/testDb';
 
 // REQUIRES
-require('dotenv').config();
+require('dotenv').config({ silent: true });
 const express = require('express');
 const router = express.Router();
 const path = require('path');
@@ -12,6 +13,13 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackConfig = require('./webpack.config.js');
+
+// MONGO/MONGOOSE
+const mongoose = require('mongoose');
+mongoose.Promise = Promise;
+mongoose.connection.openUri(MONGO_URI, err => {
+  console.log(err || `Mongo connected on ${MONGO_URI}`);
+})
 
 // APP DECLARATION
 const app = express();
