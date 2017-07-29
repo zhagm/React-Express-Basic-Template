@@ -5,9 +5,15 @@ const Thing = require('../models/Thing');
 
 router.route('/')
   .get((req, res) => {
-    Thing.find({}, (err, things) => {
-      res.status(err ? 400 : 200).send(err || things);
-    });
+    Thing.find()
+    //.limit(10)
+    //.sort('timestamp')
+      .then(things => {
+        res.send(things);
+      })
+      .catch(err => {
+        res.status(400).send(err);
+      })
   })
   .post((req, res) => {
     Thing.create(req.body)
