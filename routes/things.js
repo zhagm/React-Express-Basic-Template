@@ -6,8 +6,9 @@ const Thing = require('../models/Thing');
 router.route('/')
   .get((req, res) => {
     Thing.find()
-    //.limit(10)
-    //.sort('timestamp')
+    //.limit(10) // returns only the amount of items as specified in limit
+    //.sort('timestamp') // sort by property mentioned, add '-' before to reverse
+    //.select('name') // will only show id and properties mentioned in select
       .then(things => {
         res.send(things);
       })
